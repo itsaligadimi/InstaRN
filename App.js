@@ -47,7 +47,24 @@ const styles = StyleSheet.create({
         marginTop: 4,
         fontFamily: 'BloggerSans',
         fontSize: 16,
-    }
+    },
+    pNum:{
+        fontFamily: 'BloggerSansBold', 
+        fontSize: 25, 
+        alignSelf: 'center'
+    },
+    pTitle:{
+        fontFamily: 'BloggerSans', 
+        fontSize: 18, 
+        alignSelf: 'center'
+    },
+    postItem:{
+        flexDirection: 'column', 
+        width: POST_SIZE,
+         margin: 1, 
+         backgroundColor: '#aaddff', 
+         aspectRatio: 1
+        }
 });
 
 export default class InstaRN extends Component {
@@ -107,16 +124,16 @@ export default class InstaRN extends Component {
 
                 <View style={{flexDirection: "row", marginTop: 32,}}>
                     <View style={{flex: 1}}>
-                        <Text style={[styles.text, {fontFamily: 'BloggerSansBold', fontSize: 25, alignSelf: 'center'}]}>{this.state.postsCount}</Text> 
-                        <Text style={[styles.text, {fontFamily: 'BloggerSans', fontSize: 18, alignSelf: 'center'}]}>posts</Text> 
+                        <Text style={[styles.text, styles.pNum]}>{this.state.postsCount}</Text> 
+                        <Text style={[styles.text, styles.pTitle]}>posts</Text> 
                     </View>
                     <View style={{flex: 1}}>
-                        <Text style={[styles.text, {fontFamily: 'BloggerSansBold', fontSize: 25, alignSelf: 'center'}]}>{this.state.followers}</Text> 
-                        <Text style={[styles.text, {fontFamily: 'BloggerSans', fontSize: 18, alignSelf: 'center'}]}>followers</Text> 
+                        <Text style={[styles.text, styles.pNum]}>{this.state.followers}</Text> 
+                        <Text style={[styles.text, styles.pTitle]}>followers</Text> 
                     </View>                
                     <View style={{flex: 1}}>
-                        <Text style={[styles.text, {fontFamily: 'BloggerSansBold', fontSize: 25, alignSelf: 'center'}]}>{this.state.followings}</Text> 
-                        <Text style={[styles.text, {fontFamily: 'BloggerSans', fontSize: 18, alignSelf: 'center'}]}>followings</Text> 
+                        <Text style={[styles.text, styles.pNum]}>{this.state.followings}</Text> 
+                        <Text style={[styles.text, styles.pTitle]}>followings</Text> 
                     </View>
                 </View>
                 
@@ -125,7 +142,7 @@ export default class InstaRN extends Component {
                     style={{marginTop: 16}}
                     data={this.state.posts}
                     renderItem={({item}) => 
-                        <View style={{flexDirection: 'column', width: POST_SIZE, margin: 1, backgroundColor: '#aaddff', aspectRatio: 1}}>
+                        <View style={styles.postItem}>
                             <Image 
                                 style={{width: POST_SIZE, aspectRatio: 1}}
                                 source={{uri: item.node.display_url}}/>
